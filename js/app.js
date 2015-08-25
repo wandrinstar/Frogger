@@ -73,11 +73,11 @@ Player.prototype.update = function(dt) {
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     if (this.y <-100) {
-      ctx.font = "25pt Arial";
+      ctx.font = "20pt arial";
       ctx.strokeStyle = "black";
       ctx.lineWidth = 3;
-      ctx.strokeText("WINNER!", 150, 250);
-      ctx.strokeText("F5 to play again.", 150, 350);
+      ctx.strokeText("WINNER", 150, 250);
+      ctx.strokeText("Refresh page to play again.", 150, 350);
     }
 
 };
