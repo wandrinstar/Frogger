@@ -1,7 +1,7 @@
 // This code implements the original Frogger game.
 // Author: Martin Edson, August 25, 2015, Udacity front-end class project.
 
-// Initiates enemy objects
+// Initiates enemy objects.
 // Parameters: takes enemy coordinates and enemy speed.
 // Creates an enemy with coordinates, speed,  and image.
 var Enemy = function(x, y, speed) {
@@ -11,8 +11,8 @@ var Enemy = function(x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position, required method for game.
+// Parameter: dt, a time delta between ticks.
 Enemy.prototype.update = function(dt) {
     if (this.x > CANVASWIDTH) {
         this.x = 0;
@@ -20,7 +20,7 @@ Enemy.prototype.update = function(dt) {
     this.x = Math.round(this.x + BLOCKWIDTH * dt * this.speed);
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen, required method for game.
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -40,7 +40,6 @@ var Player = function() {
 Player.prototype.update = function(dt) {
     this.x = this.x;
     this.y = this.y;
-
     for (var e in allEnemies) {
         if (Math.abs(allEnemies[e].x - this.x) < BLOCKWIDTH / 2){
             if (Math.abs(allEnemies[e].y - this.y) < BLOCKHEIGHT / 2){
@@ -48,7 +47,6 @@ Player.prototype.update = function(dt) {
             }
         }
     }
-
     if (this.y <= 0){
         allEnemies = [];
         this.y = -BLOCKHEIGHT / 2;
@@ -106,7 +104,7 @@ Player.prototype.beginGame = function() {
     this.y = BOTTOM;
 };
 
-// This listens for key presses and sends the keys to your
+// This listens for key presses and sends the keys to your.
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
